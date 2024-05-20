@@ -4,14 +4,9 @@ import com.example.hibernatedao.entity.Man;
 import com.example.hibernatedao.entity.Persons;
 import com.example.hibernatedao.repository.CustomizedPersonsCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.CustomAutowireConfigurer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
-
-import javax.swing.text.html.parser.Entity;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @Configuration
@@ -23,7 +18,7 @@ public class DAOController {
 
     @GetMapping("persons/by-city")
     public Object fetch(@RequestParam String city) {
-        return customizedPersonsCrudRepository.findByCityOfLiving(city);
+        return customizedPersonsCrudRepository.findByCity(city);
     }
 
     @DeleteMapping("persons/id")
@@ -43,12 +38,12 @@ public class DAOController {
 
     @GetMapping("persons/age")
     public Object readPersonsByAge(@RequestParam Integer age) {
-        return customizedPersonsCrudRepository.findByMan_AgeLessThan(age,Sort.sort(Persons.class));
+        return customizedPersonsCrudRepository.findByAge(age,Sort.sort(Persons.class));
     }
 
     @GetMapping("persons/name")
     public Object readPersonsByNameAvdSurname(@RequestParam String name,@RequestParam String surname) {
-        return customizedPersonsCrudRepository.findByMan_NameAndMan_Surname(name, surname);
+        return customizedPersonsCrudRepository.findByNameAndSurname(name, surname);
     }
 
 }
