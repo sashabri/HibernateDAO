@@ -2,6 +2,7 @@ package com.example.hibernatedao.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
 
 import java.io.Serializable;
 import java.util.Objects;

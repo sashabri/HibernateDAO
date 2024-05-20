@@ -1,5 +1,3 @@
-create schema persons;
-
 create table PERSONS (
                          name varchar(50),
                          surname varchar(50),
